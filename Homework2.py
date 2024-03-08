@@ -93,6 +93,7 @@ else:
 
 #9. Write a Python program that implements a decorator to validate function arguments
 # based on a given condition
+print('task 9')
 def validator(state):
     def decorator(func):
         def wrapper(*args, **kwargs):
@@ -112,6 +113,7 @@ print(result, type(result))
 
 
 #10. Write a Python program that implements a decorator to validate function arguments length
+print('task 10')
 def validator(state):
     def decorator(func):
         def wrapper(*args, **kwargs):
