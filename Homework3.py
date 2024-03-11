@@ -91,6 +91,18 @@ print(max(arr2)+min(arr2))
 
 #9. Given an dict. Invert it (keys become values and values  become keys). 
 # If there is more than key for that given value create an list.
+dict_1 = {'a': 1, 'f': 1, 'b': 2, 'c': 2, 'z': 10, 'd': 2}
+new_dict = {}
+
+for i in dict_1:
+    if dict_1[i] in new_dict:
+        arr = list(new_dict[dict_1[i]])
+        arr.append(i)
+        new_dict[dict_1[i]] = arr
+    else:
+        new_dict.setdefault(dict_1[i], i)
+
+print(new_dict)
 
 #10. Define a function which can generate a dictionary where the keys are numbers between 1 and N (both 
 # included) and the values are square of keys. The function should print the dict.Example : 
