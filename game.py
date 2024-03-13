@@ -12,10 +12,12 @@ def mprint(a):
         print(' | '.join(row))
 
 def win_comb(matrix):
-    win = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
+    win = (((0, 0), (0, 1), (0, 2)), ((1, 0), (1, 1), (1, 2)), ((2, 0), (2, 1), (2, 2)),
+           ((0, 0), (1, 0), (2, 0)), ((0, 1), (1, 1), (2, 1)), ((0, 2), (1, 2), (2, 2)),
+           ((0, 0), (1, 1), (2, 2)), ((0, 2), (1, 1), (2, 0)))
     for comb in win:
-        if matrix[comb[0]] == matrix[comb[1]] == matrix[comb[2]]:
-            return matrix[comb[0]]
+        if matrix[comb[0][0]][comb[0][1]] == matrix[comb[1][0]][comb[1][1]] == matrix[comb[2][0]][comb[2][1]] != ' ':
+            return matrix[comb[0][0]][comb[0][1]]
     return False
 
 def take_input(player, matrix):
