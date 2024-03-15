@@ -1,0 +1,75 @@
+# 1. Given three numbers a, b (a ≤ b) and step. Create an list of  evenly spaced elements starting from a to b spaced by step.
+# you  have 3 argument:
+
+def creat_list(a, b, step):
+    arr = []
+    for i in range(a, b+1, step):
+        arr.append(i)
+    print(arr)
+print('task 1')
+creat_list(10, 100, 20)
+
+#2. Imagine you and the computer are playing tennis. write a program where you have a sheet where victory points are kept and you need 
+# to figure out who is the winner.A set is won by the first side to win 6 games. You should to show the result of the match. 
+# If game win you in list add “a” if pc “b”. results=['b','a','a','a','a','a','a','a','a','a','a','a','b','b','b','b','b','b','a',
+# 'a','a','a', 'a','b','b','b','b','b', 'a','a','a','a','a','a','a','a','a','a','a','a','a','a','a'
+
+def tennis(arr: list):
+    player = 0
+    computer = 0
+    my_counter = 0
+    pc_counter = 0
+    for i in arr:
+        if i == 'a':
+            player += 1
+            if player >= 6 and (player-computer)>=2 :
+                my_counter+=1
+                player =0
+                
+        elif i == 'b':
+            computer += 1
+            if computer >= 6 and (computer-player)>=2:
+                pc_counter += 1
+                computer = 0
+    print(my_counter, ':', pc_counter)
+tennis(['b','a','a','a','a','a','a','a','a','a','a','a','b','b','b','b','b','b','a','a','a','a', 'a','b','b','b','b','b', 'a','a','a','a','a','a','a','a','a','a','a','a','a','a','a'])
+
+
+#3. booble sort for dict
+def bubble_sort(d):
+    items = list(d.items())
+    n = len(items)
+    
+    for i in range(n-1):
+        for j in range(0, n-i-1):
+            if items[j][1] > items[j+1][1]:
+                items[j], items[j+1] = items[j+1], items[j]
+    
+    return dict(items)
+
+students = {
+    'Ani': 10,
+    'Nare': 8,
+    'Gago': 7,
+    'Jhon': 10,
+    'Sam': 2
+}
+print(bubble_sort(students))
+
+
+#4. binery search without rec
+def binery_search(my_list, search, start, stop):
+    while start < stop:
+        mid = (start+stop)//2
+        if search == my_list[mid]:
+            return mid
+        elif search < my_list[mid]:
+            return binery_search(my_list, search, start, mid-1)
+        else:
+            return binery_search(my_list, search, mid+1, stop)
+my_list = [1, 12, 14, 18, 27, 34, 56, 89, 123, 156, 198, 300, 900, 990, 1020]
+start = 0
+stop = len(my_list)
+search = 156
+result = binery_search(my_list, search, start, stop)
+print(result)
